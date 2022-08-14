@@ -9,7 +9,6 @@ import { initGraphql } from './graphql';
 
     // Initialize Apollo Graphql Server
     const apolloServer = await initGraphql();
-    console.log("apollo server: ", apolloServer);
 
     // Start Graphql Server
     await apolloServer.start();
