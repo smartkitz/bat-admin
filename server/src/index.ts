@@ -1,12 +1,27 @@
 import Express from 'express';
+import "reflect-metadata";
 import { PROJ_CNST } from './constants/proj.cnst';
+import { initGraphql } from './graphql'; 
 
 (async () => {
     // Initialize express app
     const app = Express();
 
+    // Initialize Apollo Graphql Server
+    const apolloServer = await initGraphql();
+    console.log("apollo server: ", apolloServer);
+
+    // Start Graphql Server
+    await apolloServer.start();
+
+    // Add apollo graphql server to express as a middleware
+    apolloServer.applyMiddleware({
+        app,
+        path: '/graphql'
+    });
+
     // Heartbeat route.
-    app.get('/', (_, res) => {
+    app.get('/hb', (_, res) => {
         res.send("Server Alive!");
     })
 
