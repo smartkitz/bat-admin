@@ -25,11 +25,7 @@ import { initGraphql } from './graphql';
     })
 
     // Start express Server.
-    app.listen(PROJ_CNST.PORT, (err) => {
-        if(err) {
-            console.error("Error while starting the server: ", err);
-            return;
-        }
+    app.listen(PROJ_CNST.PORT, () => {
         console.log(`Server started on PORT: http://localhost:${PROJ_CNST.PORT}`);
     })
 })()
