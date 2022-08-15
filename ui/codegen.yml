@@ -1,0 +1,15 @@
+schema:  http://localhost:5000/graphql
+documents: ./src/graphql/**/*.graphql
+overwrite: true
+generates:
+  ./src/generated/graphql.ts:
+    config:
+      skiTypeName: false
+      withHOC: false
+      withHooks: true
+      withComponent: false
+      apolloReactHooksImportFrom: "@apollo/client"
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
