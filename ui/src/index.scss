@@ -1,0 +1,23 @@
+// Import any third party scss files.
+
+// Import partials
+@use "./assets/styles/variables";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// TODO: Update variables and styles as per project
+:root {
+  --bg: #fff;
+  --color: #000;
+}
+
+body {
+  background: var(--bg);
+  color: var(--color);
+}
